@@ -12,7 +12,7 @@ class A2345tianqiSpider(scrapy.Spider):
 
     def start_requests(self):
         for year in range(2020, 2021):
-            for month in range(4, 5):
+            for month in range(1, 12):
                 yield Request(
                     url=f"http://tianqi.2345.com/Pc/GetHistory?areaInfo%5BareaId%5D=57328&areaInfo%5BareaType%5D=2&date%5Byear%5D={year}&date%5Bmonth%5D={month}",
                     callback=self.layer_1
@@ -46,6 +46,7 @@ class A2345tianqiSpider(scrapy.Spider):
             item["wind"] = wind[0] if wind else ""
 
             list_item.append(item)
+
         for item in list_item:
             for sub in sub_list:
                 if sub != len(list_item) - 1:
