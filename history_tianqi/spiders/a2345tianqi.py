@@ -11,7 +11,7 @@ class A2345tianqiSpider(scrapy.Spider):
     allowed_domains = ['2345.com']
 
     def start_requests(self):
-        for year in range(2016, 2021):
+        for year in range(2020, 2021):
             for month in range(1, 13):
                 yield Request(
                     url=f"http://tianqi.2345.com/Pc/GetHistory?areaInfo%5BareaId%5D=57328&areaInfo%5BareaType%5D=2&date%5Byear%5D={year}&date%5Bmonth%5D={month}",

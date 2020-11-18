@@ -16,14 +16,14 @@ class HistoryTianqiPipeline:
 
     def __init__(self):
         # 建立连接
-        self.conn = pymysql.connect('localhost', 'root', '123456', 'weather_dazhou',charset="utf8")  # 有中文要存入数据库的话要加charset='utf8'
+        self.conn = pymysql.connect('localhost', 'root', '123456', 'dzdl_gzfx',charset="utf8")  # 有中文要存入数据库的话要加charset='utf8'
         # 创建游标
         self.cursor = self.conn.cursor()
 
     def process_item(self, item, spider):
         # sql语句
         insert_sql = """
-           replace into  dazhou(date,temp_max,temp_min,weather,wind) VALUES(%s,%s,%s,%s,%s)
+           replace into  tian_q(日期,最高气温,最低气温,天气,风级) VALUES(%s,%s,%s,%s,%s)
            """
         # 执行插入数据到数据库操作
         self.cursor.execute(insert_sql, (item['date'], item['temp_max'], item['temp_min'], item['weather'],
