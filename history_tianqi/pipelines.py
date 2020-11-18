@@ -36,3 +36,4 @@ class HistoryTianqiPipeline:
         # 关闭游标和连接
         self.cursor.close()
         self.conn.close()
+
